@@ -7,6 +7,7 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Notifier\Exception\LogicException;
 use Symfony\Component\Notifier\Message\MessageInterface;
+use Symfony\Component\Notifier\Message\SentMessage;
 use Symfony\Component\Notifier\Message\SmsMessage;
 use Symfony\Component\Notifier\Transport\AbstractTransport;
 
@@ -45,10 +46,10 @@ final class FakeSmsTransport extends AbstractTransport
 
     /**
      * @param MessageInterface|SmsMessage $message
-     * @return void
+     * @return SentMessage
      * @throws TransportExceptionInterface
      */
-    protected function doSend(MessageInterface $message): void
+    protected function doSend(MessageInterface $message): SentMessage
     {
         if (!$this->supports($message)) {
             throw new LogicException(sprintf(
@@ -72,5 +73,7 @@ final class FakeSmsTransport extends AbstractTransport
             ->text($message->getSubject());
 
         $this->mailer->send($email);
+
+        return new SentMessage($message, (string)$this);
     }
 }
