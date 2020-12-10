@@ -7,7 +7,6 @@ use Symfony\Component\Mailer\MailerInterface;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Notifier\Exception\LogicException;
 use Symfony\Component\Notifier\Message\MessageInterface;
-use Symfony\Component\Notifier\Message\SentMessage;
 use Symfony\Component\Notifier\Message\SmsMessage;
 use Symfony\Component\Notifier\Transport\AbstractTransport;
 
@@ -19,13 +18,16 @@ final class FakeSmsTransport extends AbstractTransport
     protected const HOST = 'email';
 
     private string $to;
+    private string $from;
     private ?MailerInterface $mailer;
 
     public function __construct(
         string $to,
+        string $from,
         MailerInterface $mailer = null
     ) {
         $this->to = $to;
+        $this->from = $from;
         $this->mailer = $mailer;
 
         parent::__construct();
@@ -33,7 +35,7 @@ final class FakeSmsTransport extends AbstractTransport
 
     public function __toString(): string
     {
-        return sprintf('fakesms://%s?to=%s', $this->getEndpoint(), $this->to);
+        return sprintf('fakesms://%s?to=%s&from=%s', $this->getEndpoint(), $this->to, $this->from);
     }
 
     public function supports(MessageInterface $message): bool
@@ -63,8 +65,10 @@ final class FakeSmsTransport extends AbstractTransport
         }
 
         $email = (new Email())
+            ->from($this->from)
             ->to($this->to)
             ->subject('New SMS on ' . $message->getPhone())
+            ->html($message->getSubject())
             ->text($message->getSubject());
 
         $this->mailer->send($email);

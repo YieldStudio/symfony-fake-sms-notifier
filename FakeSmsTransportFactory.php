@@ -31,14 +31,19 @@ final class FakeSmsTransportFactory extends AbstractTransportFactory
     {
         $scheme = $dsn->getScheme();
         $to = $dsn->getOption('to');
+        $from = $dsn->getOption('from');
         $host = $dsn->getHost();
 
         if (!$to) {
             throw new IncompleteDsnException('Missing to.', $dsn->getOriginalDsn());
         }
 
+        if (!$from) {
+            throw new IncompleteDsnException('Missing to.', $dsn->getOriginalDsn());
+        }
+
         if ('fakesms' === $scheme) {
-            return (new FakeSmsTransport($to, $this->mailer))->setHost($host);
+            return (new FakeSmsTransport($to, $from, $this->mailer))->setHost($host);
         }
 
         throw new UnsupportedSchemeException($dsn, 'fakesms', $this->getSupportedSchemes());

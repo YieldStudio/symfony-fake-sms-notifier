@@ -39,11 +39,12 @@ framework:
 
 ```
 // .env file
-FAKE_SMS_DSN=fakesms://email?to=TO
+FAKE_SMS_DSN=fakesms://email?to=TO&from=FROM
 ```
 
 where:
  - `TO` is email who receive SMS during development
+ - `FROM` is email who send SMS during development
 
 Running the Tests
 ---------

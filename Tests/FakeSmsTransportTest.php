@@ -12,21 +12,21 @@ final class FakeSmsTransportTest extends TestCase
 {
     public function testToString(): void
     {
-        $transport = $this->getTransport('tech@yieldstudio.fr');
+        $transport = $this->getTransport('tech@yieldstudio.fr', 'sender@localhost.dev');
 
-        $this->assertSame('fakesms://email?to=tech@yieldstudio.fr', (string)$transport);
+        $this->assertSame('fakesms://email?to=tech@yieldstudio.fr&from=sender@localhost.dev', (string)$transport);
     }
 
     public function testSupportsMessageInterface(): void
     {
-        $transport = $this->getTransport('tech@yieldstudio.fr');
+        $transport = $this->getTransport('tech@yieldstudio.fr', 'sender@localhost.dev');
 
         $this->assertTrue($transport->supports(new SmsMessage('0612345678', 'Hi !')));
         $this->assertFalse($transport->supports($this->createMock(MessageInterface::class)));
     }
 
-    private function getTransport(string $to): FakeSmsTransport
+    private function getTransport(string $to, string $from): FakeSmsTransport
     {
-        return new FakeSmsTransport($to, $this->createMock(MailerInterface::class));
+        return new FakeSmsTransport($to, $from, $this->createMock(MailerInterface::class));
     }
 }
