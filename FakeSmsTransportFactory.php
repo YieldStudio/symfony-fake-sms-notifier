@@ -39,7 +39,7 @@ final class FakeSmsTransportFactory extends AbstractTransportFactory
         }
 
         if (!$from) {
-            throw new IncompleteDsnException('Missing to.', $dsn->getOriginalDsn());
+            throw new IncompleteDsnException('Missing from.', $dsn->getOriginalDsn());
         }
 
         if ('fakesms' === $scheme) {
