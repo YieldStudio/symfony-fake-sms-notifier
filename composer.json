@@ -1,0 +1,36 @@
+{
+    "name": "yieldstudio/symfony-fake-sms-notifier",
+    "type": "symfony-bundle",
+    "description": "Fake SMS (as email during development) integration for Symfony Notifier.",
+    "keywords": ["sms", "dev-tool","email", "notifier", "symfony"],
+    "homepage": "https://github.com/YieldStudio/symfony-fake-sms-notifier",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Yield Studio",
+            "email": "contact@yieldstudio.fr",
+            "homepage": "https://yieldstudio.fr"
+        }
+    ],
+    "require": {
+        "php": ">=7.4.0",
+        "symfony/http-client": "^4.3|^5.0",
+        "symfony/notifier": "^5.2",
+        "symfony/event-dispatcher-contracts": "^2",
+        "symfony/mailer": "^5.2"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.5 || ^7",
+        "squizlabs/php_codesniffer": "3.*"
+    },
+    "autoload": {
+        "psr-4": { "YieldStudio\\Notifier\\FakeSms\\": "" },
+        "exclude-from-classmap": [
+            "/Tests/"
+        ]
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "minimum-stability": "dev"
+}
