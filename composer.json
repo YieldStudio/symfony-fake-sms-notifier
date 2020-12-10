@@ -14,10 +14,10 @@
     ],
     "require": {
         "php": ">=7.4.0",
-        "symfony/http-client": "^4.3|^5.0",
-        "symfony/notifier": "^5.2",
+        "symfony/http-client": "^4.3|^5.1",
+        "symfony/notifier": "~5.1.0",
         "symfony/event-dispatcher-contracts": "^2",
-        "symfony/mailer": "^5.2"
+        "symfony/mailer": "^5.1"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.5 || ^7",

@@ -43,10 +43,10 @@ final class FakeSmsTransport extends AbstractTransport
 
     /**
      * @param MessageInterface|SmsMessage $message
-     * @return SentMessage
+     * @return void
      * @throws TransportExceptionInterface
      */
-    protected function doSend(MessageInterface $message): SentMessage
+    protected function doSend(MessageInterface $message): void
     {
         if (!$this->supports($message)) {
             throw new LogicException(sprintf(
@@ -68,7 +68,5 @@ final class FakeSmsTransport extends AbstractTransport
             ->text($message->getSubject());
 
         $this->mailer->send($email);
-
-        return new SentMessage($message, (string)$this);
     }
 }
