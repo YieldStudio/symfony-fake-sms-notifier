@@ -14,7 +14,6 @@ use Symfony\Component\Notifier\Transport\TransportInterface;
  */
 final class FakeSmsTransportFactory extends AbstractTransportFactory
 {
-
     protected ?MailerInterface $mailer;
 
     public function __construct(MailerInterface $mailer = null)
