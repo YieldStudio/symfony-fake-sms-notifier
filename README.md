@@ -1,6 +1,10 @@
 Fake SMS Notifier
 ====================
 
+[![Latest Version](https://img.shields.io/github/release/yieldstudio/nova-google-autocomplete?style=flat-square)](https://github.com/yieldstudio/nova-google-autocomplete/releases)
+![GitHub Workflow Status](https://img.shields.io/github/workflow/status/yieldstudio/symfony-fake-sms-notifier/tests)
+[![Total Downloads](https://img.shields.io/packagist/dt/yieldstudio/nova-google-autocomplete?style=flat-square)](https://packagist.org/packages/yieldstudio/nova-google-autocomplete)
+
 Provides Fake SMS (as email during development) integration for Symfony Notifier.
 
 | Symfony Version | Package Version |
@@ -59,6 +63,23 @@ Then run the test suite:
 
     composer test
 
+
+### Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+### Security
+
+If you've found a bug regarding security please mail [contact@yieldstudio.fr](mailto:contact@yieldstudio.fr) instead of using the issue tracker.
+
+## Credits
+
+- [James Hemery](https://github.com/jameshemery)
+
 ## License
 
-This bundle is released under the MIT license.
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
