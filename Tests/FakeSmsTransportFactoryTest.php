@@ -15,7 +15,7 @@ final class FakeSmsTransportFactoryTest extends TestCase
         $factory = $this->initFactory();
 
         $dsn = 'fakesms://email?to=tech@yieldstudio.fr&from=sender@localhost.dev';
-        $transport = $factory->create(Dsn::fromString($dsn));
+        $transport = $factory->create(new Dsn($dsn));
 
         $this->assertSame('fakesms://email?to=tech@yieldstudio.fr&from=sender@localhost.dev', (string) $transport);
     }
@@ -27,7 +27,7 @@ final class FakeSmsTransportFactoryTest extends TestCase
         $this->expectException(IncompleteDsnException::class);
 
         $dsnIncomplete = 'fakesms://email';
-        $factory->create(Dsn::fromString($dsnIncomplete));
+        $factory->create(new Dsn($dsnIncomplete));
     }
 
     public function testSupportsFakeSmsScheme(): void
@@ -37,8 +37,8 @@ final class FakeSmsTransportFactoryTest extends TestCase
         $dsn = 'fakesms://email?to=tech@yieldstudio.fr&from=sender@localhost.dev';
         $dsnUnsupported = 'foobar://email?to=tech@yieldstudio.fr&from=sender@localhost.dev';
 
-        $this->assertTrue($factory->supports(Dsn::fromString($dsn)));
-        $this->assertFalse($factory->supports(Dsn::fromString($dsnUnsupported)));
+        $this->assertTrue($factory->supports(new Dsn($dsn)));
+        $this->assertFalse($factory->supports(new Dsn($dsnUnsupported)));
     }
 
     public function testNonFakeSmsSchemeThrows(): void
@@ -48,7 +48,7 @@ final class FakeSmsTransportFactoryTest extends TestCase
         $this->expectException(UnsupportedSchemeException::class);
 
         $dsnUnsupported = 'foobar://email?to=tech@yieldstudio.fr&from=sender@localhost.dev';
-        $factory->create(Dsn::fromString($dsnUnsupported));
+        $factory->create(new Dsn($dsnUnsupported));
     }
 
     private function initFactory(): FakeSmsTransportFactory
