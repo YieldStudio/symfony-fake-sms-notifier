@@ -63,8 +63,7 @@ Then run the test suite:
 
     composer test
 
-
-### Changelog
+## Changelog
 
 Please see [CHANGELOG](CHANGELOG.md) for more information on what has changed recently.
 
