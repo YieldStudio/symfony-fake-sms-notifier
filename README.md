@@ -1,9 +1,9 @@
 Fake SMS Notifier
 ====================
 
-[![Latest Version](https://img.shields.io/github/release/yieldstudio/nova-google-autocomplete?style=flat-square)](https://github.com/yieldstudio/nova-google-autocomplete/releases)
-![GitHub Workflow Status](https://img.shields.io/github/workflow/status/yieldstudio/symfony-fake-sms-notifier/tests)
-[![Total Downloads](https://img.shields.io/packagist/dt/yieldstudio/nova-google-autocomplete?style=flat-square)](https://packagist.org/packages/yieldstudio/nova-google-autocomplete)
+[![Latest Version](https://img.shields.io/github/release/yieldstudio/symfony-fake-sms-notifier?style=flat-square)](https://github.com/yieldstudio/symfony-fake-sms-notifier/releases)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/yieldstudio/symfony-fake-sms-notifier/tests)](https://github.com/yieldstudio/symfony-fake-sms-notifier/actions/workflows/tests.yml)
+[![Total Downloads](https://img.shields.io/packagist/dt/yieldstudio/symfony-fake-sms-notifier?style=flat-square)](https://packagist.org/packages/yieldstudio/symfony-fake-sms-notifier)
 
 Provides Fake SMS (as email during development) integration for Symfony Notifier.
 
