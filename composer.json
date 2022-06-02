@@ -2,13 +2,13 @@
     "name": "yieldstudio/symfony-fake-sms-notifier",
     "type": "symfony-bundle",
     "description": "Fake SMS (as email during development) integration for Symfony Notifier.",
-    "keywords": ["sms", "dev-tool","email", "notifier", "symfony"],
+    "keywords": ["yieldstudio", "sms", "dev-tool","email", "notifier", "symfony"],
     "homepage": "https://github.com/YieldStudio/symfony-fake-sms-notifier",
     "license": "MIT",
     "authors": [
         {
-            "name": "Yield Studio",
-            "email": "contact@yieldstudio.fr",
+            "name": "James Hemery",
+            "email": "james@yieldstudio.fr",
             "homepage": "https://yieldstudio.fr"
         }
     ],
